@@ -1,24 +1,7 @@
-# README
+Proyecto Nutricel
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Creado por:
+Garcia Cortez Kevin Eduardo 21211950
+Montaño Zaragoza Marcos Ulises 21211998
+Perez Luna Jaime Alonso 21212021
+Díaz Abraham Jahir de Jesús 20212396
