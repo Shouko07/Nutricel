@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  cantidad_ordenada: 1
+  fecha_inicial: 2024-04-16 00:03:25
+  fecha_entrega: 2024-04-16 00:03:25
+
+two:
+  cantidad_ordenada: 1
+  fecha_inicial: 2024-04-16 00:03:25
+  fecha_entrega: 2024-04-16 00:03:25

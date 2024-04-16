@@ -1,0 +1,11 @@
+<h1>Editar cliente</h1>
+</br>
+<%= render "form", cliente: @cliente %>
+
+
+<div>
+  <%= button_to "Eliminar cliente", @cliente, method: :delete, form: { data: { turbo_confirm: '¿Estas seguro?' } }, class: "btn btn-danger" %>
+  <br/>
+  <%= link_to "Mostrar este cliente", @cliente , class: "btn btn-dark"%>
+  <%= link_to "Regresar", clientes_path, class: "btn btn-dark" %>
+</div>

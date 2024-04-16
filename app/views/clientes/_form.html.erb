@@ -1,0 +1,77 @@
+<%= form_with(model: cliente) do |form| %>
+  <% if cliente.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(cliente.errors.count, "error") %> prohibited this cliente from being saved:</h2>
+
+      <ul>
+        <% cliente.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="mb-3">
+    <%= form.text_field :nombre, 
+    class:"form-control",
+    placeholder:"Nombre" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.text_field :apellido_paterno, 
+    class:"form-control",
+      placeholder:"Apellido paterno" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.text_field :apellido_materno, 
+    class:"form-control",
+      placeholder:"Apeliido materno"  %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.text_field :correo, 
+    class:"form-control",
+      placeholder:"Correo"  %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.text_field :telefono, 
+    class:"form-control",
+      placeholder:"Telefono"  %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.text_field :calle, 
+    class:"form-control",
+      placeholder:"Calle"  %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.text_field :colonia, 
+    class:"form-control",
+      placeholder:"Colonia"  %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.text_field :codigo_postal, 
+    class:"form-control",
+      placeholder:"Codigo postal"  %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.text_field :ciudad, 
+    class:"form-control",
+      placeholder:"Ciudad"  %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.text_field :pais, 
+    class:"form-control",
+      placeholder:"Pais"  %>
+  </div>
+</br>
+  <div class="mb-3">
+    <%= form.submit class:'btn btn-secondary'%>
+  </div>
+<% end %>

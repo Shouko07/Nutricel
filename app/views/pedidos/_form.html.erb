@@ -1,0 +1,46 @@
+<%= form_with(model: pedido) do |form| %>
+  <% if pedido.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(pedido.errors.count, "error") %> prohibited this pedido from being saved:</h2>
+
+      <ul>
+        <% pedido.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="mb-3" style="width: 18rem;">
+    <%= form.number_field :cantidad_ordenada, 
+    class:"form-control",
+    placeholder:"Cantidad ordenada" %>
+  </div>
+
+  <div class="mb-3" style="width: 18rem;">
+    <%= form.label :fecha_inicial, style: "display: block" %>
+    <%= form.text_field :fecha_inicial, value: Time.zone.today, readonly: true, 
+    class:"form-control" %>
+    <%= form.hidden_field :fecha_inicial, value: Time.zone.today %>
+  </div>
+
+  <div class="mb-3" style="width: 18rem;">
+    <%= form.label :fecha_entrega, style: "display: block" %>
+    <%= form.text_field :fecha_entrega, value: Time.zone.today + 10.days, readonly: true, 
+    class:"form-control" %>
+    <%= form.hidden_field :fecha_entrega, value: Time.zone.today + 10.days %>
+  </div>
+
+  <div class="mb-3" style="width: 18rem;">
+  <%= form.number_field :usuario_id,
+  id: :pedido_usuario_id,
+  class:"form-control",
+  value:current_usuario.id,
+  type: :hidden %>
+</div>
+
+</br>
+  <div>
+    <%= form.submit "Crear pedido",class:"btn btn-secondary"%>
+  </div>
+<% end %>
