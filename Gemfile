@@ -65,6 +65,7 @@ end
 
 group :production do
   gem 'pg', '~> 1.5', '>= 1.5.6'
+  #Intentar reparar 
 end
 
 group :test do
