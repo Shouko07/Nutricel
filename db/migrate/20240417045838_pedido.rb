@@ -7,5 +7,4 @@ class Pedido < ActiveRecord::Migration[7.1]
       t.integer :usuario_id
       t.timestamps
   end
-  add_index :pedidos, :usuario_id
 end
