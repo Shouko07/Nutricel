@@ -20,6 +20,6 @@ test:
 
 production:
   <<: *default
+  database: nutricel_production
   username: postgres
   password: key23116
-  database: nutricel_production
