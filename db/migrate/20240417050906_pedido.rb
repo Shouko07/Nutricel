@@ -6,5 +6,6 @@ class Pedido < ActiveRecord::Migration[7.1]
       t.datetime :fecha_entrega
       t.integer :usuario_id
       t.timestamps
+    end
   end
 end
