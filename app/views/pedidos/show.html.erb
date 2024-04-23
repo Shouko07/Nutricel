@@ -6,7 +6,12 @@
         <p class="col-md-8 fs-4"><strong>Cantidad ordenada:</strong> <%= @pedido.cantidad_ordenada %></p>
         <p class="col-md-8 fs-4"><strong>Fecha inicial:</strong> <%= @pedido.fecha_inicial %></p>
         <p class="col-md-8 fs-4"><strong>Fecha de entrega:</strong> <%= @pedido.fecha_entrega %></p>
-        <p class="col-md-8 fs-4"><strong>ID del usuario:</strong> <%= @pedido.usuario_id %></p>             
+        <p class="col-md-8 fs-4"><strong>ID del usuario:</strong> <%= @pedido.usuario_id %></p> 
+        <p class="col-md-8 fs-4"><strong>Nombre:</strong> 
+        <%= @pedido.usuario.nombre %>
+        <%= @pedido.usuario.apellido_paterno %>
+        <%= @pedido.usuario.apellido_materno %>
+        </p>                   
         <%= link_to "Regresar", pedidos_path, class: "btn btn-dark btn-lg"%>
       </div>
     </div>

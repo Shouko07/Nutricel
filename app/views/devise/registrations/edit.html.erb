@@ -35,16 +35,69 @@
     class:"form-control",
       placeholder:"Contraseña actual" %>
   </div>
+  <div class="mb-3">
+  <%= f.text_field :nombre, 
+  class:"form-control",
+  placeholder:"Nombre" %>
+  </div>
 
+<div class="mb-3">
+  <%= f.text_field :apellido_paterno, 
+  class:"form-control",
+    placeholder:"Apellido paterno" %>
+</div>
+
+<div class="mb-3">
+  <%= f.text_field :apellido_materno, 
+  class:"form-control",
+    placeholder:"Apeliido materno"  %>
+</div>
+
+<div class="mb-3">
+  <%= f.text_field :telefono, 
+  class:"form-control",
+    placeholder:"Telefono"  %>
+</div>
+
+<div class="mb-3">
+  <%= f.text_field :calle, 
+  class:"form-control",
+    placeholder:"Calle"  %>
+</div>
+
+<div class="mb-3">
+  <%= f.text_field :colonia, 
+  class:"form-control",
+    placeholder:"Colonia"  %>
+</div>
+
+<div class="mb-3">
+  <%= f.text_field :codigo_postal, 
+  class:"form-control",
+    placeholder:"Codigo postal"  %>
+</div>
+
+<div class="mb-3">
+  <%= f.text_field :ciudad, 
+  class:"form-control",
+    placeholder:"Ciudad"  %>
+</div>
+
+<div class="mb-3">
+  <%= f.text_field :pais, 
+  class:"form-control",
+    placeholder:"Pais"  %>
   <div class="actions">
-    <%= f.submit "Update", class:"btn btn-secondary" %>
+    <%= f.submit "Actualizar", class:"btn btn-secondary" %>
   </div>
 <% end %>
 </br>
 <div class="card text-center mb-3">
   <div class="card-body" >
   <h3>Cancelar mi cuenta</h3>
-  <div>¿Desea eliminar su cuenta? <%= button_to "Cancelar mi cuenta", registration_path(resource_name), data: { confirm: "¿Estas seguro?", turbo_confirm: "¿Estas seguro?" }, method: :delete, class:"btn btn-danger" %></div>
+  <div>¿Desea eliminar su cuenta? 
+  <%= button_to "Cancelar mi cuenta", registration_path(resource_name), method: :delete, form: { data: { turbo_confirm: '¿Estas seguro?' } }, class:"btn btn-danger" %>
+  </div>
   </br>  
   </div>
 </div>

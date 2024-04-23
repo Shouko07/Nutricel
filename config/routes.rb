@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
   resources :pedidos
-  devise_for :usuarios
-  resources :clientes
+  #devise_for :usuarios
+  devise_for :usuarios, controllers: {
+    registrations: 'users/registrations'
+  }
+  
+  resources :usuarios
   #get 'home/index'
   get 'home/about'
 

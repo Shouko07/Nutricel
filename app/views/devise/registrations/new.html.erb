@@ -23,7 +23,59 @@
     class:"form-control",
       placeholder:"Confirma la contraseña"  %>
   </div>
+  <div class="mb-3">
+  <%= f.text_field :nombre, 
+  class:"form-control",
+  placeholder:"Nombre" %>
+  </div>
 
+<div class="mb-3">
+  <%= f.text_field :apellido_paterno, 
+  class:"form-control",
+    placeholder:"Apellido paterno" %>
+</div>
+
+<div class="mb-3">
+  <%= f.text_field :apellido_materno, 
+  class:"form-control",
+    placeholder:"Apeliido materno"  %>
+</div>
+
+<div class="mb-3">
+  <%= f.text_field :telefono, 
+  class:"form-control",
+    placeholder:"Telefono"  %>
+</div>
+
+<div class="mb-3">
+  <%= f.text_field :calle, 
+  class:"form-control",
+    placeholder:"Calle"  %>
+</div>
+
+<div class="mb-3">
+  <%= f.text_field :colonia, 
+  class:"form-control",
+    placeholder:"Colonia"  %>
+</div>
+
+<div class="mb-3">
+  <%= f.text_field :codigo_postal, 
+  class:"form-control",
+    placeholder:"Codigo postal"  %>
+</div>
+
+<div class="mb-3">
+  <%= f.text_field :ciudad, 
+  class:"form-control",
+    placeholder:"Ciudad"  %>
+</div>
+
+<div class="mb-3">
+  <%= f.text_field :pais, 
+  class:"form-control",
+    placeholder:"Pais"  %>
+</div>
   <div class="actions">
     <%= f.submit "Sign up", class: "btn btn-secondary" %>
   </div>

@@ -10,24 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_04_16_083607) do
+ActiveRecord::Schema[7.1].define(version: 2024_04_23_003029) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "clientes", force: :cascade do |t|
-    t.string "nombre"
-    t.string "apellido_paterno"
-    t.string "apellido_materno"
-    t.string "correo"
-    t.string "telefono"
-    t.string "calle"
-    t.string "colonia"
-    t.string "codigo_postal"
-    t.string "ciudad"
-    t.string "pais"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
 
   create_table "pedidos", force: :cascade do |t|
     t.integer "cantidad_ordenada"
@@ -47,6 +32,15 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_16_083607) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "nombre"
+    t.string "apellido_paterno"
+    t.string "apellido_materno"
+    t.string "telefono"
+    t.string "calle"
+    t.string "colonia"
+    t.string "codigo_postal"
+    t.string "ciudad"
+    t.string "pais"
     t.index ["email"], name: "index_usuarios_on_email", unique: true
     t.index ["reset_password_token"], name: "index_usuarios_on_reset_password_token", unique: true
   end
