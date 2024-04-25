@@ -1,8 +1,8 @@
-<h2>Editar <%= resource_name.to_s.humanize %></h2>
-</br>
+<section class="py-5">
+<h2 class="display-6 fw-bold pb-md-4">Editar <%= resource_name.to_s.humanize %></h2>
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
-
+  <h3 class="display-6 fw-bold pb-md-4">Datos de seguridad</h3>
   <div class="mb-3d">
     <%= f.email_field :email, autofocus: true, autocomplete: "email", 
     class:"form-control",
@@ -35,6 +35,7 @@
     class:"form-control",
       placeholder:"Contraseña actual" %>
   </div>
+  <h3 class="display-6 fw-bold pb-md-4">Datos personales</h3>
   <div class="mb-3">
   <%= f.text_field :nombre, 
   class:"form-control",
@@ -87,19 +88,48 @@
   <%= f.text_field :pais, 
   class:"form-control",
     placeholder:"Pais"  %>
+</div>
   <div class="actions">
     <%= f.submit "Actualizar", class:"btn btn-secondary" %>
   </div>
 <% end %>
-</br>
-<div class="card text-center mb-3">
-  <div class="card-body" >
-  <h3>Cancelar mi cuenta</h3>
-  <div>¿Desea eliminar su cuenta? 
-  <%= button_to "Cancelar mi cuenta", registration_path(resource_name), method: :delete, form: { data: { turbo_confirm: '¿Estas seguro?' } }, class:"btn btn-danger" %>
-  </div>
-  </br>  
+</br></br></br>
+
+
+
+<div class="row mb-5">
+    <div class="col-md-8 col-xl-6 text-center mx-auto">
+        <h2 class="display-6 fw-bold mb-4">Cancelar mi cuenta</h2>
+        <p class="text-muted">¿Desea eliminar su cuenta?</p>
+        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">Cancelar mi cuenta</button>
+    </div>
+</div>
+</br></br>
+<%= link_to "Regresar", :back, class:"btn btn-dark" %>
+
+<style>
+  /* Estilos personalizados para el modal */
+  .modal-content {
+    border-radius: 0.5rem; /* Ajusta el valor según sea necesario */
+  }
+</style>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header border-0">
+        <h5 class="modal-title fw-bold" id="exampleModalLabel">Cancelar mi cuenta</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>¿Estás seguro de que quieres desactivar tu cuenta? Todos tus datos serán eliminados permanentemente. Esta acción no se puede deshacer.</p>
+      </div>
+      <div class="modal-footer border-0">
+        <%= button_to "Cancelar mi cuenta", registration_path(resource_name), method: :delete, form: { data: { turbo_confirm: '¿Estás seguro?' } }, class:"btn btn-danger" %>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+      </div>
+    </div>
   </div>
 </div>
-</br>  
-<%= link_to "Back", :back, class:"btn btn-dark" %>
+
+</section>

@@ -1,0 +1,33 @@
+<section class="py-5">
+<div class="p-5 mb-4 bg-light rounded-3">
+  <div style="display: grid; grid-template-columns: 1fr 1fr;">
+    <div>      
+      <div class="container-fluid py-5">
+        <h1 class="display-5 fw-bold">
+          Datos del producto
+        </h1>
+        <p class="col-md-8 fs-4"><strong>ID del producto:</strong> <%= @producto.producto_id %></p>
+        <p class="col-md-8 fs-4"><strong>Nombre:</strong> <%= @producto.nombre %></p>
+        <p class="col-md-8 fs-4"><strong>Precio (MXN):</strong> <%= @producto.precio %></p>
+        <p class="col-md-8 fs-4"><strong>Peso (gr):</strong> <%= @producto.peso %></p> 
+        <p class="col-md-8 fs-4"><strong>Fecha de expiracion:</strong> <%= @producto.fecha_expiracion %></p> 
+        </p>                   
+       <%= link_to "Regresar", productos_path, class: "btn btn-dark btn-lg"%>
+      </div>
+    </div>
+    <div>  
+      </br></br>
+      <p class="col-md-8 fs-4"><%= image_tag(@producto.imagen) %>
+    </div>
+  </div>
+</div>
+
+<div class="producto-info">
+</div>
+</section>
+  
+
+
+
+
+

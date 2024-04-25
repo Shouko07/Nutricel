@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :productos
   resources :pedidos
   #devise_for :usuarios
   devise_for :usuarios, controllers: {
@@ -6,8 +7,10 @@ Rails.application.routes.draw do
   }
   
   resources :usuarios
-  #get 'home/index'
+  get 'home/menu'
   get 'home/about'
+  get 'home/chatbot'
+  get 'home/contacto'
 
   root 'home#index'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

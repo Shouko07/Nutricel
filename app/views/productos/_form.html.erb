@@ -1,0 +1,43 @@
+<%= form_with(model: producto) do |form| %>
+  <% if producto.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(producto.errors.count, "error") %> prohibited this producto from being saved:</h2>
+
+      <ul>
+        <% producto.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="mb-3" style="width: 18rem;">
+  <input class="form-control" placeholder="ID del producto" type="number" name="producto[producto_id]" id="producto_producto_id" readonly value="<%= @next_producto_id %>" />
+</div>
+
+
+  <div class="mb-3" style="width: 18rem;">
+    <input class="form-control" placeholder="Nombre" type="text" name="producto[nombre]" id="producto_nombre" />
+  </div>
+
+  <div class="mb-3" style="width: 18rem;">
+    <input class="form-control" placeholder="Precio" type="text" name="producto[precio]" id="producto_precio" />
+  </div>
+
+  <div class="mb-3" style="width: 18rem;">
+    <input class="form-control" placeholder="Peso" type="text" name="producto[peso]" id="producto_peso" />
+  </div>
+
+  <div class="mb-3" style="width: 18rem;">
+    <input class="form-control" placeholder="Imagen" type="text" name="producto[imagen]" id="producto_imagen" />
+  </div>
+
+  <div class="mb-3" style="width: 18rem;">
+  <%= form.label :fecha_expiracion, style: "display: block" %>
+    <input class="form-control" type="datetime-local" name="producto[fecha_expiracion]" id="producto_fecha_expiracion" />
+  </div>
+
+  <div>
+    <%= form.submit class:"btn btn-secondary"%>
+  </div>
+<% end %>

@@ -1,29 +1,33 @@
-<h2>Iniciar sesion</h2>
-</br>
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="mb-3">
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", 
-    class:"form-control",
-      placeholder:"Correo electronico" %>
-  </div>
+<section class="py-4 py-md-5 my-5">
+    <div class="container py-md-5">
+        <div class="row">
+            <div class="col-md-6 text-center"><%= image_tag("illustrations/login.svg", class: "img-fluid w-100") %></div>
+            <div class="col-md-5 col-xl-4 text-center text-md-start">
+                <h2 class="display-6 fw-bold mb-5"><span class="underline pb-1"><strong>Inicio de sesion</strong></span></h2>
+                <form method="post" data-bs-theme="light">
+                <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
-  <div class="mb-3">
-    <%= f.password_field :password, autocomplete: "current-password", 
-    class:"form-control" ,
-      placeholder:"Contraseña"%>
-  </div>
+                    <div class="mb-3">  <div class="mb-3">
+                    <%= f.email_field :email, autofocus: true, autocomplete: "email", 
+                    class:"form-control",
+                      placeholder:"Correo electronico" %></div>
 
-  <% if devise_mapping.rememberable? %>
-    <div class="mb-3 form-check">
-      <%= f.check_box :remember_me, class: "form-check-input" %>
-      <%= f.label :Mantener_la_sesion_iniciada %>
+                    <div class="mb-3">    <%= f.password_field :password, autocomplete: "current-password", 
+                    class:"form-control" ,
+                      placeholder:"Contraseña"%></div>
+
+                      <% if devise_mapping.rememberable? %>
+                      <div class="mb-3 form-check">
+                        <%= f.check_box :remember_me, class: "form-check-input" %>
+                        <%= f.label :Mantener_la_sesion_iniciada %>
+                      </div>
+                    <% end %>
+                    
+                    <div class="mb-5">    <%= f.submit "Iniciar sesion", class:"btn btn-primary shadow" %></div>
+                </form>
+                <p class="text-muted"><%= render "devise/shared/links" %></p>
+                <% end %>
+            </div>
+        </div>
     </div>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit "Iniciar sesion", class:'btn btn-secondary' %>
-  </div>
-  </br>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</section>

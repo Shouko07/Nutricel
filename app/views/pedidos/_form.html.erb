@@ -10,6 +10,12 @@
       </ul>
     </div>
   <% end %>
+  <div class="mb-3" style="width: 18rem;">
+  <label class="form-label">Producto</label>
+  <input type="hidden" name="pedido[producto_id]" value="<%= @producto.id %>">
+  <input class="form-control" type="text" value="<%= @producto.nombre %>" readonly>
+</div>
+
 
   <div class="mb-3" style="width: 18rem;">
     <%= form.number_field :cantidad_ordenada, 

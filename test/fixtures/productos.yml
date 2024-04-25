@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  id_producto: 1
+  nombre: MyString
+  precio: 9.99
+  peso: 9.99
+  imagen: MyString
+  fecha_expiracion: 2024-04-22 18:35:50
+
+two:
+  id_producto: 1
+  nombre: MyString
+  precio: 9.99
+  peso: 9.99
+  imagen: MyString
+  fecha_expiracion: 2024-04-22 18:35:50

@@ -1,6 +1,7 @@
 class UsuariosController < ApplicationController
   before_action :set_usuario, only: %i[ show update destroy ]
-  before_action :authenticate_usuario!, except: [:index, :show]
+  before_action :authenticate_usuario!
+  before_action :correct_user, only: [ :update, :destroy]
   # GET /usuarios or /usuarios.json
   def index
     @usuarios = Usuario.all
@@ -12,12 +13,12 @@ class UsuariosController < ApplicationController
 
   # GET /usuarios/new
   def new
-    @usuario = Usuario.new
+    @usuario = current_usuario.usuario.build
   end
 
   # POST /usuarios or /usuarios.json
   def create
-    @usuario = Usuario.new(usuario_params)
+    @usuario = current_usuario.usuario.build(usuario_params)
 
     respond_to do |format|
       if @usuario.save

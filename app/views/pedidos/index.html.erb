@@ -1,9 +1,10 @@
-<h1>Lista de pedidos</h1>
-
+<section class="py-5">
+<h1 class="display-6 fw-bold pb-md-4">Lista de pedidos</h1>
 <table class="table table-striped table-hover ">
   <thead class="table-dark">
     <tr>
       <th scope="col">Cantidad ordenada</th>
+      <th scope="col">Nombre del producto</th>
       <th scope="col">Fecha Inicial</th>
       <th scope="col">Fecha de entrega</th>
       <th scope="col">ID del usuario</th>
@@ -16,6 +17,7 @@
       <% if pedido.usuario == current_usuario %>
       <tr>
         <td><%= pedido.cantidad_ordenada %></td>
+        <td><%= pedido.producto.nombre %></td>
         <td><%= pedido.fecha_inicial %></td>
         <td><%= pedido.fecha_entrega %></td>
         <td><%= pedido.usuario_id %></td>
@@ -27,5 +29,4 @@
     <% end %>
   </tbody>
 </table>
-
-<%= link_to "Nuevo pedido", new_pedido_path, class: "btn btn-secondary btn-lg" %>
+</section>
