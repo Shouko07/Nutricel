@@ -6,8 +6,6 @@ class HomeController < ApplicationController
   end
   def menu
   end
-  def chatbot
-  end
   def contacto
   end
 end

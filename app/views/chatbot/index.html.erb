@@ -1,0 +1,24 @@
+<div class="bootstrap_chat" data-controller="chat">
+    <div class="container py-5 px-4">
+        <header class="text-center">
+            <h1 class="display-4 fw-bold pb-md-4">Chatbot</h1>
+        </header>
+        <div class="row rounded-lg overflow-hidden shadow">
+            <div class="col-12 px-0">
+                <div class="px-4 py-5 chat-box bg-white" id="chat-container">
+                    <section class="chat-conversation" data-chat-target="conversation">
+                    </section>
+                </div>
+                <%= form_with data: { action: "chat#generateResponse" } do |form|%>
+                    <div class="input-group">
+                        <%= form.text_area :message, id: 'prompt', data:{ chat_target: "prompt"}, class: "form-control rounded-0 border-0 py-4 bg-light", placeholder: "Type a message", aria_describedby: "button-addon2" %>
+                        <div class="input-group-append">
+                            <%= form.submit "Enviar", class: "btn btn-primary" %>
+                        </div>
+                    </div>
+                <% end %>
+            </div>
+        </div>
+    </div>
+</div>
+

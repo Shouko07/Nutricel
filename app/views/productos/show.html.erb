@@ -17,7 +17,11 @@
     </div>
     <div>  
       </br></br>
-      <p class="col-md-8 fs-4"><%= image_tag(@producto.imagen) %>
+      <p class="col-md-8 fs-4">
+      <%  if File.exist?(Rails.root.join('app','assets', 'images', @producto.imagen)) %>
+      <%= image_tag(@producto.imagen) %>
+      <% end %>
+      
     </div>
   </div>
 </div>

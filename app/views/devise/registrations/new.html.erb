@@ -7,13 +7,13 @@
                     <%= image_tag("illustrations/register.svg", class: "img-fluid w-100") %>
                 </div>
                 <div class="col-md-6 col-xl-3 text-center text-md-start">
-                    <h2 class="display-6 fw-bold mb-5"><span class="underline pb-1"><strong>Registrate</strong></span></h2>
+                    <h2 class="display-6 fw-bold mb-5"><span class="underline pb-1"><strong>Regístrate</strong></span></h2>
                     <div class="mb-3">
-                        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", placeholder: "Correo electronico"  %>
+                        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", placeholder: "Correo electrónico"  %>
                     </div>
                     <div class="mb-3">
                         <% if @minimum_password_length %>
-                            <em>(Minimo <%=  @minimum_password_length %> caracteres)</em>
+                            <em>(Mínimo <%=  @minimum_password_length %> caracteres)</em>
                         <% end %><br />
                         <%= f.password_field :password, autocomplete: "new-password", class: "form-control", placeholder: "Crea una contraseña"  %>
                     </div>
@@ -27,18 +27,13 @@
                         <%= f.text_field :apellido_paterno, class: "form-control", placeholder: "Apellido paterno" %>
                     </div>
                     <div class="mb-3">
-                        <%= f.text_field :apellido_materno, class: "form-control", placeholder: "Apeliido materno"  %>
+                        <%= f.text_field :apellido_materno, class: "form-control", placeholder: "Apellido materno"  %>
                     </div>
-                    <div class="mb-3">
-                        <%= f.submit "Crear cuenta", class: "btn btn-primary shadow" %>
-                    </div>
-                    <p class="text-muted">¿Ya tienes una cuenta?</br><%= render "devise/shared/links" %></p>
                 </div>
                 <div class="col-md-6 col-xl-3 text-center text-md-start">
-                <h2 class="display-6 fw-bold mb-5 "style="visibility: hidden;"><span class="underline pb-1"><strong>Registrate</strong></span></h2>
-
+                    <h2 class="display-6 fw-bold mb-5" style="visibility: hidden;"><span class="underline pb-1"><strong>Regístrate</strong></span></h2>
                     <div class="mb-3">
-                        <%= f.text_field :telefono, class: "form-control", placeholder: "Telefono"  %>
+                        <%= f.text_field :telefono, class: "form-control", placeholder: "Teléfono"  %>
                     </div>
                     <div class="mb-3">
                         <%= f.text_field :calle, class: "form-control", placeholder: "Calle"  %>
@@ -47,16 +42,25 @@
                         <%= f.text_field :colonia, class: "form-control", placeholder: "Colonia"  %>
                     </div>
                     <div class="mb-3">
-                        <%= f.text_field :codigo_postal, class: "form-control", placeholder: "Codigo postal"  %>
+                        <%= f.text_field :codigo_postal, class: "form-control", placeholder: "Código postal"  %>
                     </div>
                     <div class="mb-3">
                         <%= f.text_field :ciudad, class: "form-control", placeholder: "Ciudad"  %>
                     </div>
                     <div class="mb-3">
-                        <%= f.text_field :pais, class: "form-control", placeholder: "Pais"  %>
+                        <%= f.text_field :pais, class: "form-control", placeholder: "País"  %>
                     </div>
                 </div>
             </div>
+            <div class="row mb-5">
+            <div class="col-md-10 col-lg-8 col-xl-6 text-center mx-auto">
+                <div class="mb-3">
+                    <%= f.submit "Crear cuenta", class: "btn btn-primary shadow" %>
+                </div>
+                <p class="text-muted">¿Ya tienes una cuenta?</br><%= render "devise/shared/links" %></p>
+            </div>
         </div>
+        
+        
     <% end %>
 </section>

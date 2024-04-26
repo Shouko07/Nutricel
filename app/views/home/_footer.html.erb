@@ -8,7 +8,7 @@
             <div class="col-sm-4 col-md-3 col-xl-4 text-lg-start d-flex flex-column">
                 <h3 class="fs-6 fw-bold">Servicios</h3>
                 <ul class="list-unstyled">
-                    <li><a href="#">Productos</a></li>
+                    <li><%= link_to 'Productos', productos_path, class:"nav-link" %></li>
                     <li><a href="#">Plan nutricional</a></li>
                     <li><a href="#">Consulta medica</a></li>
                 </ul>
@@ -16,8 +16,8 @@
             <div class="col-sm-4 col-md-3 text-lg-start d-flex flex-column">
                 <h3 class="fs-6 fw-bold">Acerca de</h3>
                 <ul class="list-unstyled">
-                    <li><a href="#">Compañia</a></li>
-                    <li><a href="#">Creadores</a></li>
+                    <li><%= link_to 'Compañia', home_about_path, class:"nav-link" %></li>
+                    <li><%= link_to 'Contacto', home_contacto_path, class:"nav-link" %></li>
                     <li></li>
                 </ul>
             </div>

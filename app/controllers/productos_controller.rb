@@ -7,7 +7,7 @@ class ProductosController < ApplicationController
   def index
     @productos = Producto.all
   end
-
+  
   # GET /productos/1 or /productos/1.json
   def show
   end

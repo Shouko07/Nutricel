@@ -125,7 +125,7 @@
         <p>¿Estás seguro de que quieres desactivar tu cuenta? Todos tus datos serán eliminados permanentemente. Esta acción no se puede deshacer.</p>
       </div>
       <div class="modal-footer border-0">
-        <%= button_to "Cancelar mi cuenta", registration_path(resource_name), method: :delete, form: { data: { turbo_confirm: '¿Estás seguro?' } }, class:"btn btn-danger" %>
+        <%= button_to "Cancelar mi cuenta", registration_path(resource_name), method: :delete, class:"btn btn-danger" %>
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
       </div>
     </div>

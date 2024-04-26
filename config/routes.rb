@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
+  get 'chatbot/index'
   resources :productos
   resources :pedidos
-  #devise_for :usuarios
+  resource :chat_responses, only: [:show]
+
   devise_for :usuarios, controllers: {
     registrations: 'users/registrations'
   }
@@ -9,7 +11,6 @@ Rails.application.routes.draw do
   resources :usuarios
   get 'home/menu'
   get 'home/about'
-  get 'home/chatbot'
   get 'home/contacto'
 
   root 'home#index'
