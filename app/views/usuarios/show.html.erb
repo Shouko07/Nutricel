@@ -15,8 +15,8 @@
         <p class="col-md-8 fs-4"><strong>País:</strong> <%= @usuario.pais %></p>
         
         <%= link_to "Editar este cliente", edit_usuario_path(@usuario), class: "btn btn-dark btn-lg"%>
-        <%= link_to "Regresar", usuarios_path, class: "btn btn-dark btn-lg"%>
-      </div>
+        <%= link_to "Editar", edit_usuario_registration_path(usuario), class: "btn btn-secondary" %>
+        </div>
     </div>
     <div class="cliente-info">
 
