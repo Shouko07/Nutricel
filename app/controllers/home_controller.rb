@@ -6,6 +6,6 @@ class HomeController < ApplicationController
   end
   def menu
   end
-  def contacto
+  def faq
   end
 end

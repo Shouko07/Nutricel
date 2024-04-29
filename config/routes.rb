@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   resources :usuarios
   get 'home/menu'
   get 'home/about'
-  get 'home/contacto'
+  get 'home/faq'
 
   root 'home#index'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
