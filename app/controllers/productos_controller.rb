@@ -1,7 +1,6 @@
 class ProductosController < ApplicationController
   before_action :set_producto, only: %i[ show edit update destroy ]
   before_action :authenticate_usuario!
-  before_action :correct_user, only: [:edit, :update, :destroy]
 
   # GET /productos or /productos.json
   def index
