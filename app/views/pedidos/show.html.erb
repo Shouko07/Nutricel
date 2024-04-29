@@ -34,8 +34,8 @@
     <div>  
       </br></br></br></br></br></br>
       <p class="col-md-8 fs-4">
-      <%  if File.exist?(Rails.root.join('app','assets', 'images', @producto.imagen)) %>
-      <%= image_tag(@producto.imagen) %>
+      <%  if File.exist?(Rails.root.join('app','assets', 'images', @pedido.producto.imagen)) %>
+      <%= image_tag(@pedido.producto.imagen) %>
       <% end %>
     </div>
   </div>
