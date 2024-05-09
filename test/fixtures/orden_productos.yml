@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  folio_id: 1
+  cantidad_ordenada: 1
+  fecha_inicial: 2024-05-06 11:48:01
+  fecha_entrega: 2024-05-06 11:48:01
+  proveedor_id: 1
+  producto_id: 1
+
+two:
+  folio_id: 1
+  cantidad_ordenada: 1
+  fecha_inicial: 2024-05-06 11:48:01
+  fecha_entrega: 2024-05-06 11:48:01
+  proveedor_id: 1
+  producto_id: 1

@@ -1,0 +1,47 @@
+<%= form_with(model: orden_producto) do |form| %>
+  <% if orden_producto.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(orden_producto.errors.count, "error") %> prohibited this orden_producto from being saved:</h2>
+
+      <ul>
+        <% orden_producto.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :folio_id, style: "display: block" %>
+    <%= form.number_field :folio_id %>
+  </div>
+
+  <div>
+    <%= form.label :cantidad_ordenada, style: "display: block" %>
+    <%= form.number_field :cantidad_ordenada %>
+  </div>
+
+  <div>
+    <%= form.label :fecha_inicial, style: "display: block" %>
+    <%= form.datetime_field :fecha_inicial %>
+  </div>
+
+  <div>
+    <%= form.label :fecha_entrega, style: "display: block" %>
+    <%= form.datetime_field :fecha_entrega %>
+  </div>
+
+  <div>
+    <%= form.label :proveedor_id, style: "display: block" %>
+    <%= form.number_field :proveedor_id %>
+  </div>
+
+  <div>
+    <%= form.label :producto_id, style: "display: block" %>
+    <%= form.number_field :producto_id %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -14,6 +14,7 @@
                         <table class="table table-striped table-hover">
                             <thead class="table-dark">
                                 <tr>
+                                    <th scope="col">Folio</th>
                                     <th scope="col">Cantidad ordenada</th>
                                     <th scope="col">Nombre del producto</th>
                                     <th scope="col">Fecha Inicial</th>
@@ -28,6 +29,7 @@
                                 <% @pedidos.each do |pedido| %>
                                     <% if pedido.usuario == current_usuario %>
                                         <tr>
+                                            <td><%= pedido.id %></td>
                                             <td><%= pedido.cantidad_ordenada %></td>
                                             <td><%= pedido.producto.nombre %></td>
                                             <td><%= pedido.fecha_inicial.strftime("%d/%m/%Y") %></td>

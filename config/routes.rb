@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :orden_productos
+  resources :proveedors
   get 'chatbot/index'
   resources :productos
   resources :pedidos

@@ -29,16 +29,48 @@
                 </div>
             </div>
         </div>
+
         <div class="row">
+        <div class="col d-md-flex align-items-md-end align-items-lg-center mb-5">
+            <div class="row gy-4 row-cols-1 row-cols-md-2 flex-grow-1">
+                <div class="col">
+                    <div class="card border-light border-1 d-flex justify-content-center p-4">
+                        <div class="card-body">
+                            <div>
+                            <h4 class="fw-bold">Usuarios</h4>
+                            <p class="text-muted d-none d-xl-block">Accede a la lista de usuarios registrados.</p>
+                            <%= link_to 'Ir a usuarios', usuarios_path, class:"nav-link" %>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card border-light border-1 d-flex justify-content-center p-4">
+                        <div class="card-body">
+                            <div>
+                                <h4 class="fw-bold">Editar perfil</h4>
+                                <p class="text-muted d-none d-xl-block">Realiza cambios y ajustes en tu información personal.</p>
+                                <%= link_to 'Ir a editar perfil', edit_usuario_registration_path, class:"nav-link" %>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 order-first order-md-last mb-5"><%= image_tag("illustrations/video-call.svg", class: "img-fluid w-100") %></div>
+    </div>
+
+        <div class="row">
+        <div class="col-md-4 mb-5"><%= image_tag("illustrations/presentation-2.svg", class: "img-fluid w-100") %></div>
             <div class="col d-md-flex align-items-md-end align-items-lg-center mb-5">
                 <div class="row gy-4 row-cols-1 row-cols-md-2 flex-grow-1">
                     <div class="col">
                         <div class="card border-light border-1 d-flex justify-content-center p-4">
                             <div class="card-body">
                                 <div>
-                                <h4 class="fw-bold">Usuarios</h4>
-                                <p class="text-muted d-none d-xl-block">Accede a la lista de usuarios registrados.</p>
-                                <%= link_to 'Ir a usuarios', usuarios_path, class:"nav-link" %>
+                                <h4 class="fw-bold">Proveedores</h4>
+                                <p class="text-muted d-none d-xl-block">Accede a la lista de proveedores registrados.</p>
+                                <%= link_to 'Ir a proveedores', proveedors_path, class:"nav-link" %>
                                 </div>
                             </div>
                         </div>
@@ -47,16 +79,15 @@
                         <div class="card border-light border-1 d-flex justify-content-center p-4">
                             <div class="card-body">
                                 <div>
-                                    <h4 class="fw-bold">Editar perfil</h4>
-                                    <p class="text-muted d-none d-xl-block">Realiza cambios y ajustes en tu información personal.</p>
-                                    <%= link_to 'Ir a editar perfil', edit_usuario_registration_path, class:"nav-link" %>
+                                    <h4 class="fw-bold">Orden de producto</h4>
+                                    <p class="text-muted d-none d-xl-block">Realiza una nueva orden de productos.</p>
+                                    <%= link_to 'Ir a orden de productos', orden_productos_path, class:"nav-link" %>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 order-first order-md-last mb-5"><%= image_tag("illustrations/video-call.svg", class: "img-fluid w-100") %></div>
         </div>
     </div>
 </section>

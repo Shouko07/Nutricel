@@ -14,9 +14,12 @@ class PedidosController < ApplicationController
 
   # GET /pedidos/new
   def new
+    @pedidos = Pedido.all
     @pedido = current_usuario.pedido.build
     @producto = Producto.find(params[:producto_id])
     @pedido.producto = @producto
+
+    @next_pedido_id = Pedido.maximum(:id).to_i + 1
   end
   
 
