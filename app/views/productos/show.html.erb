@@ -11,6 +11,8 @@
         <p class="col-md-8 fs-4"><strong>Precio (MXN):</strong> <%= @producto.precio %></p>
         <p class="col-md-8 fs-4"><strong>Peso (gr):</strong> <%= @producto.peso %></p> 
         <p class="col-md-8 fs-4"><strong>Fecha de expiracion:</strong> <%= @producto.fecha_expiracion %></p> 
+        <p class="col-md-8 fs-4"><strong>Proveedor asignado:</strong> <%= @producto.proveedor.nombre %></p> 
+
         </p>                   
        <%= link_to "Regresar", productos_path, class: "btn btn-dark btn-lg"%>
       </div>

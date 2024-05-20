@@ -11,11 +11,13 @@
     </div>
   <% end %>
   
-  <div class="mb-3" style="width: 18rem;">
-<label class="form-label">ID del pedido</label>
-  <input class="form-control" readonly value="<%= @next_pedido_id %>" />
-</div>
+
   
+<div class="mb-3" style="width: 18rem;">
+<label class="form-label">ID del pedido</label>
+<input class="form-control" type="number" name="pedido[pedido_id]" id="pedido_pedido_id" readonly value="<%= @next_pedido_id %>" />
+</div>
+
   <div class="mb-3" style="width: 18rem;">
   <label class="form-label">Producto</label>
   <input type="hidden" name="pedido[producto_id]" value="<%= @producto.id %>">

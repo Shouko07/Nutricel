@@ -1,54 +1,46 @@
-  <section class="py-5">
-<div class="p-5 mb-4 bg-light rounded-3">
-  <div style="display: grid; grid-template-columns: 1fr 1fr;">
-    <div>      
-      <div class="container-fluid py-5">
-      <h1 class="display-5 fw-bold">
-      Recibo del pedido </br>
-      </h1>
-      <h2 class="display-7 fw-bold">
-      Producto:
-
-      <td><%= @pedido.producto.nombre %></td>
-      
-      </h2>
-        <p class="col-md-8 fs-4"><strong>Cantidad ordenada:</strong> <%= @pedido.cantidad_ordenada %></p>
-
-        <% cantidad_ordenada = @pedido.cantidad_ordenada %>
-        <% precio_producto = @pedido.producto.precio %>
-        <% total = cantidad_ordenada * precio_producto %> 
-        <p class="col-md-8 fs-4"><strong>Precio total:</strong> <%= total %></p>
-
-        <p class="col-md-8 fs-4"><strong>Nombre:</strong> 
-        <%= @pedido.usuario.nombre %>
-        <%= @pedido.usuario.apellido_paterno %>
-        <%= @pedido.usuario.apellido_materno %>
-        </p>          
-        <p class="col-md-8 fs-4"><strong>ID del usuario:</strong> <%= @pedido.usuario_id %></p> 
-        <p class="col-md-8 fs-4"><strong>Fecha inicial:</strong> <%= @pedido.fecha_inicial.strftime("%d/%m/%Y") %></p>
-        <p class="col-md-8 fs-4"><strong>Fecha de entrega:</strong> <%= @pedido.fecha_entrega.strftime("%d/%m/%Y") %></p>
-        <p class="col-md-8 fs-4"><strong>Id del pedido:</strong> <%= @pedido.id %></p>        
-        
-        </p>                   
-       <%= link_to "Regresar", productos_path, class: "btn btn-dark btn-lg"%>
-      </div>
-    </div>
-    <div>  
-      </br></br></br></br></br></br>
-      <p class="col-md-8 fs-4">
-      <%  if File.exist?(Rails.root.join('app','assets', 'images', @pedido.producto.imagen)) %>
-      <%= image_tag(@pedido.producto.imagen) %>
-      <% end %>
-    </div>
-  </div>
-</div>
-
-<div class="producto-info">
-</div>
+<section class="py-5">
+   <div class="p-5 mb-4 bg-light rounded-3">
+     <div style="display: grid; grid-template-columns: 1fr 1fr;">
+       <div>      
+         <div class="container-fluid py-5">
+           <h1 class="display-5 fw-bold">
+             Recibo del pedido </br>
+           </h1>
+           <h2 class="display-7 fw-bold">
+             Producto:
+             <td><%= @pedido.producto.nombre %></td>
+           </h2>
+           <p class="col-md-8 fs-4"><strong>Cantidad ordenada:</strong> <%= @pedido.cantidad_ordenada %></p>
+            <% cantidad_ordenada = @pedido.cantidad_ordenada %>
+           <% precio_producto = @pedido.producto.precio %>
+           <% total = cantidad_ordenada * precio_producto %> 
+           <p class="col-md-8 fs-4"><strong>Precio total:</strong> <%= total %></p>
+            <p class="col-md-8 fs-4"><strong>Nombre:</strong> 
+             <%= @pedido.usuario.nombre %>
+             <%= @pedido.usuario.apellido_paterno %>
+             <%= @pedido.usuario.apellido_materno %>
+           </p>          
+           <p class="col-md-8 fs-4"><strong>ID del usuario:</strong> <%= @pedido.usuario_id %></p> 
+           <p class="col-md-8 fs-4"><strong>Fecha inicial:</strong> <%= @pedido.fecha_inicial.strftime("%d/%m/%Y") %></p>
+           <p class="col-md-8 fs-4"><strong>Fecha de entrega:</strong> <%= @pedido.fecha_entrega.strftime("%d/%m/%Y") %></p>
+           <p class="col-md-8 fs-4"><strong>Id del pedido:</strong> <%= @pedido.pedido_id %></p>
+           <p class="col-md-8 fs-4"><strong>Id del proveedor:</strong> 
+             <%= @pedido.producto.proveedor.nombre %>        
+             <%= @pedido.producto.proveedor.apellido_paterno %>
+             <%= @pedido.producto.proveedor.apellido_materno %>
+           </p>                   
+           <%= link_to "Regresar", pedidos_path, class: "btn btn-dark btn-lg"%>
+           <%= link_to 'Editar', edit_pedido_path(@pedido), class: 'btn btn-secondary' %>
+         </div>
+       </div>
+       <div>  
+         </br></br></br></br></br></br>
+         <p class="col-md-8 fs-4">
+           <%  if File.exist?(Rails.root.join('app','assets', 'images', @pedido.producto.imagen)) %>
+           <%= image_tag(@pedido.producto.imagen) %>
+           <% end %>
+         </p>
+       </div>
+     </div>
+   </div>
 </section>
-  
-
-
-
-
-

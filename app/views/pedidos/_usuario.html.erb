@@ -1,0 +1,40 @@
+
+   <div class="p-3 mb-2 bg-light rounded-3">
+     <div style="display: grid; grid-template-columns: 1fr 1fr 1fr;">
+        <% @usuarios.each do |usuario| %>
+            <% if usuario == current_usuario %>
+            <div>      
+                <div class="container-fluid py-5">
+                    <h2 class=" fw-bold">
+                        Datos del cliente </br>
+                    </h1>
+                    <h2 class="display-7 fw-bold">
+                    Cliente: </br>
+                    </h2>
+                    <h3>
+                        <%= usuario.nombre %>
+                        <%= usuario.apellido_paterno %>
+                        <%= usuario.apellido_materno %>
+                    </h3>
+                   
+                    
+                </div>
+            </div>
+            <div>  
+                </br></br>
+                <p class="col-md-8 fs-4"><strong>Correo:</strong> <%= usuario.email %></p>
+                <p class="col-md-8 fs-4"><strong>Telefono:</strong> <%= usuario.telefono %></p> 
+                <p class="col-md-8 fs-4"><strong>Calle:</strong> <%= usuario.calle %></p>        
+    
+            </div>
+            <div>  
+                </br></br>
+                <p class="col-md-8 fs-4"><strong>Codigo postal:</strong> <%= usuario.codigo_postal %></p> 
+                <p class="col-md-8 fs-4"><strong>Ciudad:</strong> <%= usuario.ciudad %></p>
+                <p class="col-md-8 fs-4"><strong>Pais:</strong> <%= usuario.pais %></p>
+                <p class="col-md-8 fs-4"><strong>Colonia:</strong> <%= usuario.colonia %></p>   
+            </div>
+            <% end %>
+        <% end %>
+        </div>
+    </div>

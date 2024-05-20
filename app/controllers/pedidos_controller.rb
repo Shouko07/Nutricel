@@ -5,7 +5,12 @@ class PedidosController < ApplicationController
   
   # GET /pedidos or /pedidos.json
   def index
-    @pedidos = Pedido.all
+    @usuarios = Usuario.all
+
+    @pedidos = Pedido.order(:id) # Ordena los pedidos por ID
+    @pedi2 = Pedido.where(usuario: current_usuario)
+    @total_sum = @pedi2.sum { |pedido| pedido.cantidad_ordenada * pedido.producto.precio }
+
   end
 
   # GET /pedidos/1 or /pedidos/1.json
@@ -16,12 +21,15 @@ class PedidosController < ApplicationController
   def new
     @pedidos = Pedido.all
     @pedido = current_usuario.pedido.build
+    
     @producto = Producto.find(params[:producto_id])
     @pedido.producto = @producto
 
-    @next_pedido_id = Pedido.maximum(:id).to_i + 1
+
+    @next_pedido_id = Pedido.maximum(:pedido_id).to_i + 1
   end
   
+
 
   # GET /pedidos/1/edit
   def edit
@@ -57,10 +65,12 @@ class PedidosController < ApplicationController
 
   # DELETE /pedidos/1 or /pedidos/1.json
   def destroy
+    producto_id_eliminado = @pedido.producto_id
     @pedido.destroy!
 
     respond_to do |format|
       format.html { redirect_to pedidos_url, notice: "Pedido was successfully destroyed." }
+      Pedido.where('producto_id > ?', producto_id_eliminado).update_all('producto_id = producto_id - 1')
       format.json { head :no_content }
     end
   end
@@ -73,7 +83,7 @@ class PedidosController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def pedido_params
-      params.require(:pedido).permit(:cantidad_ordenada, :fecha_inicial, :fecha_entrega, :usuario_id, :producto_id)
+      params.require(:pedido).permit(:cantidad_ordenada, :fecha_inicial, :fecha_entrega, :usuario_id, :producto_id, :pedido_id)
     end
     def correct_user
       @pedido = current_usuario.pedido.find_by(id: params[:id])

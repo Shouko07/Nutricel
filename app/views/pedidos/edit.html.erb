@@ -1,10 +1,47 @@
 <h1>Editing pedido</h1>
 
-<%= render "form", pedido: @pedido %>
+<%= form_with(model: @pedido) do |form| %>
+  <% if @pedido.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(pedido.errors.count, "error") %> prohibited this pedido from being saved:</h2>
+
+      <ul>
+        <% pedido.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+
+  <div class="mb-3" style="width: 18rem;">
+  <label class="form-label">Cantidad ordenada</label>
+    <%= form.number_field :cantidad_ordenada, 
+    class:"form-control",
+    placeholder:"Cantidad ordenada" %>
+  </div>
+
+  <div class="mb-3" style="width: 18rem;">
+    <%= form.label :fecha_inicial, style: "display: block" %>
+    <%= form.text_field :fecha_inicial, value: Time.zone.today, readonly: true, 
+    class:"form-control" %>
+    <%= form.hidden_field :fecha_inicial, value: Time.zone.today %>
+  </div>
+
+  <div class="mb-3" style="width: 18rem;">
+    <%= form.label :fecha_entrega, style: "display: block" %>
+    <%= form.text_field :fecha_entrega, value: Time.zone.today + 10.days, readonly: true, 
+    class:"form-control" %>
+    <%= form.hidden_field :fecha_entrega, value: Time.zone.today + 10.days %>
+  </div>
+
+
+</br>
+  <div>
+    <%= form.submit "Editar",class:"btn btn-secondary"%>
+  </div>
+<% end %>
+
 
 <br>
-
-<div>
-  <%= link_to "Show this pedido", @pedido %> |
-  <%= link_to "Back to pedidos", pedidos_path %>
-</div>

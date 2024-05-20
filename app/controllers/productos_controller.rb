@@ -14,7 +14,11 @@ class ProductosController < ApplicationController
   # GET /productos/new
   def new
     @producto = Producto.new
-    @next_producto_id = Producto.maximum(:id).to_i + 1
+    @next_producto_id = Producto.maximum(:producto_id).to_i + 1
+
+    @proveedor = Proveedor.find(params[:proveedor_id])
+    @producto.proveedor = @proveedor
+
   end
 
   # GET /productos/1/edit
@@ -67,6 +71,6 @@ class ProductosController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def producto_params
-      params.require(:producto).permit(:producto_id, :nombre, :precio, :peso, :imagen, :fecha_expiracion)
+      params.require(:producto).permit(:producto_id, :nombre, :precio, :peso, :imagen, :fecha_expiracion, :proveedor_id)
     end
 end

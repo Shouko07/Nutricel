@@ -12,14 +12,23 @@
   <% end %>
 
   <div class="mb-3" style="width: 18rem;">
+  <label class="form-label">Id del Producto</label>
   <input class="form-control" placeholder="ID del producto" type="number" name="producto[producto_id]" id="producto_producto_id" readonly value="<%= @next_producto_id %>" />
 </div>
+
+<div class="mb-3" style="width: 18rem;">
+<label class="form-label">Proveedor</label>
+<input type="hidden" name="producto[proveedor_id]" value="<%= @proveedor.proveedor_id %>">
+<input class="form-control" type="text" value="<%= @proveedor.nombre %>" readonly>
+</div>
+
 
 
   <div class="mb-3" style="width: 18rem;">
     <input class="form-control" placeholder="Nombre" type="text" name="producto[nombre]" id="producto_nombre" />
   </div>
 
+  
   <div class="mb-3" style="width: 18rem;">
     <input class="form-control" placeholder="Precio" type="text" name="producto[precio]" id="producto_precio" />
   </div>
