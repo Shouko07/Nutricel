@@ -15,6 +15,9 @@ class PedidosController < ApplicationController
 
   # GET /pedidos/1 or /pedidos/1.json
   def show
+    @usuarios = Usuario.all
+
+    @proveedors= Proveedor.all
   end
 
   # GET /pedidos/new

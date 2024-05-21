@@ -1,0 +1,22 @@
+
+<div class="p-5 mb-4 bg-light rounded-3">
+<h1 class="display-6 fw-bold">
+             Datos del proveedor</br>
+           </h1>
+      <div class="container-fluid py-5">
+        <h1 class="display-5 fw-bold">
+        <p class="col-md-8 fs-4"><strong>Proveedor:</strong> 
+        <%= @pedido.producto.proveedor.nombre %>        
+        <%= @pedido.producto.proveedor.apellido_paterno %>
+        <%= @pedido.producto.proveedor.apellido_materno %>
+      </p>   
+        </h1>
+        <p class="col-md-8 fs-4"><strong>Correo:</strong> <%= @pedido.producto.proveedor.correo %></p>
+        <p class="col-md-8 fs-4"><strong>Teléfono:</strong> <%= @pedido.producto.proveedor.telefono %></p>
+        <p class="col-md-8 fs-4"><strong>Direccion:</strong> <%= @pedido.producto.proveedor.direccion %></p>
+        
+        </div>
+    </div>
+
+
+

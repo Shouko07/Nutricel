@@ -1,4 +1,7 @@
 <section class="py-5">
+<%= render 'usuario' %>
+</br>
+
    <div class="p-5 mb-4 bg-light rounded-3">
      <div style="display: grid; grid-template-columns: 1fr 1fr;">
        <div>      
@@ -14,21 +17,11 @@
             <% cantidad_ordenada = @pedido.cantidad_ordenada %>
            <% precio_producto = @pedido.producto.precio %>
            <% total = cantidad_ordenada * precio_producto %> 
-           <p class="col-md-8 fs-4"><strong>Precio total:</strong> <%= total %></p>
-            <p class="col-md-8 fs-4"><strong>Nombre:</strong> 
-             <%= @pedido.usuario.nombre %>
-             <%= @pedido.usuario.apellido_paterno %>
-             <%= @pedido.usuario.apellido_materno %>
-           </p>          
+           <p class="col-md-8 fs-4"><strong>Precio total:</strong> <%= number_with_delimiter(total) %></p>       
            <p class="col-md-8 fs-4"><strong>ID del usuario:</strong> <%= @pedido.usuario_id %></p> 
            <p class="col-md-8 fs-4"><strong>Fecha inicial:</strong> <%= @pedido.fecha_inicial.strftime("%d/%m/%Y") %></p>
            <p class="col-md-8 fs-4"><strong>Fecha de entrega:</strong> <%= @pedido.fecha_entrega.strftime("%d/%m/%Y") %></p>
-           <p class="col-md-8 fs-4"><strong>Id del pedido:</strong> <%= @pedido.pedido_id %></p>
-           <p class="col-md-8 fs-4"><strong>Id del proveedor:</strong> 
-             <%= @pedido.producto.proveedor.nombre %>        
-             <%= @pedido.producto.proveedor.apellido_paterno %>
-             <%= @pedido.producto.proveedor.apellido_materno %>
-           </p>                   
+           <p class="col-md-8 fs-4"><strong>Id del pedido:</strong> <%= @pedido.pedido_id %></p>             
            <%= link_to "Regresar", pedidos_path, class: "btn btn-dark btn-lg"%>
            <%= link_to 'Editar', edit_pedido_path(@pedido), class: 'btn btn-secondary' %>
          </div>
@@ -43,4 +36,6 @@
        </div>
      </div>
    </div>
+   <%= render 'proveedor' %>
+
 </section>
