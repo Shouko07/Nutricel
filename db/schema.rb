@@ -10,9 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_05_16_180738) do
+ActiveRecord::Schema[7.1].define(version: 2024_05_22_192844) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "inventarios", force: :cascade do |t|
+    t.integer "inventario_id"
+    t.integer "existencias"
+    t.string "producto_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["inventario_id"], name: "index_inventarios_on_inventario_id"
+  end
 
   create_table "orden_productos", force: :cascade do |t|
     t.integer "folio_id"

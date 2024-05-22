@@ -15,8 +15,9 @@
   
 <div class="mb-3" style="width: 18rem;">
 <label class="form-label">ID del pedido</label>
-<input class="form-control" type="number" name="pedido[pedido_id]" id="pedido_pedido_id" readonly value="<%= @next_pedido_id %>" />
+<input class="form-control" placeholder="ID del pedido" type="number" name="pedido[pedido_id]" id="pedido_pedido_id" readonly value="<%= @pedido.pedido_id || Pedido.maximum(:pedido_id).to_i + 1 %>" />
 </div>
+
 
   <div class="mb-3" style="width: 18rem;">
   <label class="form-label">Producto</label>

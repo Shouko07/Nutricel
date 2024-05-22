@@ -10,43 +10,54 @@
       </ul>
     </div>
   <% end %>
-
-  <div>
-    <%= form.label :proveedor_id, style: "display: block" %>
-    <%= form.number_field :proveedor_id %>
+  <div class="mb-3" style="width: 18rem;">
+  <label class="form-label">Id del proveedor</label>
+  <input class="form-control" placeholder="ID del proveedor" type="number" name="proveedor[proveedor_id]" id="proveedor_proveedor_id" readonly value="<%= @proveedor.proveedor_id || Proveedor.maximum(:proveedor_id).to_i + 1 %>" />
   </div>
 
-  <div>
+  <div class="mb-3">
     <%= form.label :nombre, style: "display: block" %>
-    <%= form.text_field :nombre %>
+    <%= form.text_field :nombre, 
+    class:"form-control",
+      placeholder:"Nombre" %>
   </div>
 
-  <div>
+  <div class="mb-3">
   <%= form.label :apellido_paterno, style: "display: block" %>
-  <%= form.text_field :apellido_paterno %>
+  <%= form.text_field :apellido_paterno, 
+  class:"form-control",
+    placeholder:"Apeliido paterno" %>
 </div>
 
-<div>
+<div class="mb-3">
   <%= form.label :apellido_materno, style: "display: block" %>
-  <%= form.text_field :apellido_materno %>
+  <%= form.text_field :apellido_materno, 
+  class:"form-control",
+    placeholder:"Apeliido materno" %>
 </div>
 
-  <div>
+  <div class="mb-3">
     <%= form.label :telefono, style: "display: block" %>
-    <%= form.text_field :telefono %>
+    <%= form.text_field :telefono, 
+    class:"form-control",
+      placeholder:"Telefono" %>
   </div>
 
-  <div>
+  <div class="mb-3">
     <%= form.label :direccion, style: "display: block" %>
-    <%= form.text_field :direccion %>
+    <%= form.text_field :direccion, 
+    class:"form-control",
+      placeholder:"Direccion" %>
   </div>
 
-  <div>
+  <div class="mb-3">
     <%= form.label :correo, style: "display: block" %>
-    <%= form.text_field :correo %>
+    <%= form.text_field :correo, 
+    class:"form-control",
+      placeholder:"Correo" %>
   </div>
 
-  <div>
-    <%= form.submit %>
+  <div class="mb-3">
+    <%= form.submit class:'btn btn-secondary'%>
   </div>
 <% end %>

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :inventarios
   resources :orden_productos
   resources :proveedors
   get 'chatbot/index'

@@ -27,6 +27,7 @@
                                     <th scope="col">Folio</th>
                                     <th scope="col">Nombre del producto</th>
                                     <th scope="col">Cantidad ordenada</th>
+                                    <th scope="col">Cantidad en existencia</th>
                                     <th scope="col">Precio C/U.</th>
                                     <th scope="col">Cantidad a pagar</th>
                                     <th scope="col">Fecha Inicial</th>
@@ -44,6 +45,7 @@
                                             <td><%= pedido.pedido_id %></td>
                                             <td><%= pedido.producto.nombre %></td>
                                             <td><%= pedido.cantidad_ordenada %></td>
+                                            <td><%= pedido.producto.inventario.existencias %></td>
                                             <td><%= pedido.producto.precio %></td>
                                             <% cantidad_ordenada = pedido.cantidad_ordenada %>
                                             <% precio_producto = pedido.producto.precio %>

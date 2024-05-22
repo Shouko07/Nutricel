@@ -14,6 +14,7 @@
              <td><%= @pedido.producto.nombre %></td>
            </h2>
            <p class="col-md-8 fs-4"><strong>Cantidad ordenada:</strong> <%= @pedido.cantidad_ordenada %></p>
+           <p class="col-md-8 fs-4"><strong>Cantidad en existencia:</strong><%= @pedido.producto.inventario.existencias %></p>
             <% cantidad_ordenada = @pedido.cantidad_ordenada %>
            <% precio_producto = @pedido.producto.precio %>
            <% total = cantidad_ordenada * precio_producto %> 

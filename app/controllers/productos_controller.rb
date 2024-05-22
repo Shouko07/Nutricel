@@ -14,11 +14,11 @@ class ProductosController < ApplicationController
   # GET /productos/new
   def new
     @producto = Producto.new
-    @next_producto_id = Producto.maximum(:producto_id).to_i + 1
-
-    @proveedor = Proveedor.find(params[:proveedor_id])
+  
+    puts "Proveedor ID: #{params[:proveedor_id]}" # Agrega esta línea
+  
+    @proveedor = Proveedor.find(params[:proveedor_id]) 
     @producto.proveedor = @proveedor
-
   end
 
   # GET /productos/1/edit

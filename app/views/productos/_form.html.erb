@@ -13,14 +13,16 @@
 
   <div class="mb-3" style="width: 18rem;">
   <label class="form-label">Id del Producto</label>
-  <input class="form-control" placeholder="ID del producto" type="number" name="producto[producto_id]" id="producto_producto_id" readonly value="<%= @next_producto_id %>" />
-</div>
+  <input class="form-control" placeholder="ID del producto" type="number" name="producto[producto_id]" id="producto_producto_id" readonly value="<%= @producto.producto_id || Producto.maximum(:producto_id).to_i + 1 %>" />
+  </div>
 
-<div class="mb-3" style="width: 18rem;">
-<label class="form-label">Proveedor</label>
-<input type="hidden" name="producto[proveedor_id]" value="<%= @proveedor.proveedor_id %>">
-<input class="form-control" type="text" value="<%= @proveedor.nombre %>" readonly>
-</div>
+  <% if @proveedor %>
+    <div class="mb-3" style="width: 18rem;">
+      <label class="form-label">Proveedor</label>
+      <input type="hidden" name="producto[proveedor_id]" value="<%= @proveedor.id %>">
+      <input class="form-control" type="text" value="<%= @proveedor.nombre %>" readonly>
+    </div>
+  <% end %>
 
 
 

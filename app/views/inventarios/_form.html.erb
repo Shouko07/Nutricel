@@ -1,0 +1,49 @@
+<%= form_with(model: inventario) do |form| %>
+  <% if inventario.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(inventario.errors.count, "error") %> prohibited this inventario from being saved:</h2>
+
+      <ul>
+        <% inventario.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="mb-3">
+    <%= form.label :inventario_id, style: "display: block" %>
+    <%= form.text_field :inventario_id ,
+    class:"form-control",
+    placeholder:"Id del inventario",
+    readonly: true%>
+  </div>
+  <div class="mb-3">
+    <%= form.label :nombre, "Nombre del producto", style: "display: block" %>
+    <input type="text" 
+           class="form-control" 
+           value="<%= @producto.nombre %>" 
+           readonly>
+  </div>
+
+  <div class="mb-3">
+  <%= form.label :existencias, "Existencias", style: "display: block" %>
+  <%# Agregamos un campo de tipo number para que el usuario pueda ingresar la cantidad a sumar %>
+  <%= form.number_field :existencias, class: "form-control", 
+  value: 0,
+  placeholder: "Existencias a agregar" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :producto_id, "ID del Producto", style: "display: block" %>
+    <input type="text" 
+           class="form-control" 
+           value="<%= @producto.producto_id %>" 
+           readonly>
+  </div>
+
+  <div class="mb-3">
+    <%= form.submit class: 'btn btn-secondary' %>
+  </div>
+<% end %>
+

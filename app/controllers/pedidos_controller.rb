@@ -44,6 +44,9 @@ class PedidosController < ApplicationController
     @pedido = current_usuario.pedido.build(pedido_params)
     respond_to do |format|
       if @pedido.save
+        producto = @pedido.producto
+        inventario = producto.inventario
+        inventario.update(existencias: inventario.existencias - @pedido.cantidad_ordenada)
         format.html { redirect_to pedido_url(@pedido), notice: "Pedido was successfully created." }
         format.json { render :show, status: :created, location: @pedido }
       else
@@ -57,6 +60,16 @@ class PedidosController < ApplicationController
   def update
     respond_to do |format|
       if @pedido.update(pedido_params)
+
+        producto = @pedido.producto
+        inventario = producto.inventario
+        inventario.update(existencias: inventario.existencias + @pedido.cantidad_ordenada)
+
+        producto = @pedido.producto
+        inventario = producto.inventario
+        inventario.update(existencias: inventario.existencias - @pedido.cantidad_ordenada)
+
+
         format.html { redirect_to pedido_url(@pedido), notice: "Pedido was successfully updated." }
         format.json { render :show, status: :ok, location: @pedido }
       else
@@ -72,8 +85,10 @@ class PedidosController < ApplicationController
     @pedido.destroy!
 
     respond_to do |format|
+      producto = @pedido.producto
+      inventario = producto.inventario
+      inventario.update(existencias: inventario.existencias + @pedido.cantidad_ordenada)
       format.html { redirect_to pedidos_url, notice: "Pedido was successfully destroyed." }
-      Pedido.where('producto_id > ?', producto_id_eliminado).update_all('producto_id = producto_id - 1')
       format.json { head :no_content }
     end
   end

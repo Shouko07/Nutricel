@@ -39,7 +39,7 @@
                                     <td><%= proveedor.telefono %></td>
                                     <td><%= proveedor.direccion %></td>
                                     <td><%= proveedor.correo %></td>
-                                    <td><%= link_to "Nuevo producto", new_producto_path(proveedor_id: proveedor.id), class: "btn btn-primary btn-lg" %></td>
+                                    <td><%= link_to "Nuevo", new_producto_path(proveedor_id: proveedor.id), class: "btn btn-success" %></td>
                                     <td><%= link_to 'Mostrar', proveedor, class: 'btn btn-dark' %></td>
                                     <td><%= link_to 'Editar', edit_proveedor_path(proveedor), class: 'btn btn-secondary' %></td>
                                     <td><%= button_to 'Eliminar', proveedor, method: :delete, form: { data: { turbo_confirm: '¿Estás seguro?' } }, class: 'btn btn-danger' %></td>
