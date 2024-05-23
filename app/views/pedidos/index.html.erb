@@ -47,10 +47,18 @@
                                             <td><%= pedido.cantidad_ordenada %></td>
                                             <td><%= pedido.producto.inventario.existencias %></td>
                                             <td><%= pedido.producto.precio %></td>
-                                            <% cantidad_ordenada = pedido.cantidad_ordenada %>
+                                            
                                             <% precio_producto = pedido.producto.precio %>
-                                            <% total = cantidad_ordenada * precio_producto %>
-                                            <td><%= total %></td> 
+                                            <% cantidad_ordenada = pedido.cantidad_ordenada %>
+
+
+                                            <% if cantidad_ordenada && existencias && precio_producto %>
+                                                % total = cantidad_ordenada * precio_producto %>
+                                                <td><%= total %></td>
+                                            <% else %>
+                                                <td>N/A</td>
+                                            <% end %>
+
                                             <td><%= pedido.fecha_inicial.strftime("%d/%m/%Y") %></td>
                                             <td><%= pedido.fecha_entrega.strftime("%d/%m/%Y") %></td>
                                             <td><%= pedido.usuario_id %></td>
