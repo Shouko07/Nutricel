@@ -7,7 +7,7 @@ class PedidosController < ApplicationController
   def index
     @usuarios = Usuario.all
 
-    @pedidos = Pedido.order(:id) # Ordena los pedidos por ID
+    @pedidos = current_usuario.pedido.order(:id) # Ordena los pedidos por ID
     @pedi2 = Pedido.where(usuario: current_usuario)
     @total_sum = @pedi2.sum { |pedido| pedido.cantidad_ordenada * pedido.producto.precio }
 
@@ -22,14 +22,14 @@ class PedidosController < ApplicationController
 
   # GET /pedidos/new
   def new
-    @pedidos = Pedido.all
+    @pedidos = current_usuario.pedido.order(:id) # Ordena los pedidos por ID
     @pedido = current_usuario.pedido.build
     
     @producto = Producto.find(params[:producto_id])
     @pedido.producto = @producto
 
 
-    @next_pedido_id = Pedido.maximum(:pedido_id).to_i + 1
+    @next_pedido_id = current_usuario.pedido.maximum(:pedido_id).to_i + 1
   end
   
 
@@ -42,6 +42,8 @@ class PedidosController < ApplicationController
   def create
     #@pedido = Pedido.new(pedido_params)
     @pedido = current_usuario.pedido.build(pedido_params)
+    @pedidos = Pedido.where(usuario: current_usuario)
+
     respond_to do |format|
       if @pedido.save
         producto = @pedido.producto
@@ -58,18 +60,18 @@ class PedidosController < ApplicationController
 
   # PATCH/PUT /pedidos/1 or /pedidos/1.json
   def update
+    @pedido = Pedido.find(params[:id])
+    cantidad_anterior = @pedido.cantidad_ordenada
+  
     respond_to do |format|
       if @pedido.update(pedido_params)
-
+        # Obtener el producto y el inventario
         producto = @pedido.producto
         inventario = producto.inventario
-        inventario.update(existencias: inventario.existencias + @pedido.cantidad_ordenada)
-
-        producto = @pedido.producto
-        inventario = producto.inventario
-        inventario.update(existencias: inventario.existencias - @pedido.cantidad_ordenada)
-
-
+  
+        # Ajustar el inventario sumando la cantidad anterior y restando la nueva cantidad
+        inventario.update(existencias: inventario.existencias + cantidad_anterior - @pedido.cantidad_ordenada)
+  
         format.html { redirect_to pedido_url(@pedido), notice: "Pedido was successfully updated." }
         format.json { render :show, status: :ok, location: @pedido }
       else
@@ -78,6 +80,7 @@ class PedidosController < ApplicationController
       end
     end
   end
+  
 
   # DELETE /pedidos/1 or /pedidos/1.json
   def destroy
