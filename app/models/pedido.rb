@@ -6,6 +6,8 @@ class Pedido < ApplicationRecord
     after_destroy :rearrange_ids
 
     validate :suficientes_existencias
+    validates :cantidad_ordenada, numericality: { greater_than: 0, message: "debe ser un número positivo" }
+
 
     private
 
