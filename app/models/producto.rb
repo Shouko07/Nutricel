@@ -1,6 +1,7 @@
 class Producto < ApplicationRecord
     has_many :pedido
     belongs_to :proveedor
+    has_many :inventario
   
   
     before_create :set_next_id

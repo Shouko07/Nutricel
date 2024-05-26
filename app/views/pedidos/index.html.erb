@@ -8,6 +8,7 @@
                 <h1 class="display-6 fw-bold pb-md-4">Lista de pedidos</h1>
             </div>
             <div class="col-12 col-sm-6 col-md-6 text-end" style="margin-bottom: 30px;">
+                <%= link_to "Ver productos", productos_path, class: "btn btn-primary btn-lg" %>
             </div>
         </div>
         <div data-reflow-type="product-search">
@@ -43,22 +44,24 @@
                                     <% if pedido.usuario == current_usuario %>
                                         <tr>
                                             <td><%= pedido.pedido_id %></td>
-                                            <td><%= pedido.producto.nombre %></td>
+                                            <td><%= pedido.producto ? pedido.producto.nombre : 'Producto no disponible' %></td>
                                             <td><%= pedido.cantidad_ordenada %></td>
-                                            <td><%= pedido.producto.inventario.existencias %></td>
-                                            <td><%= pedido.producto.precio %></td>
-                                            <% cantidad_ordenada = pedido.cantidad_ordenada %>
-                                            <% precio_producto = pedido.producto.precio %>
-                                            <% total = cantidad_ordenada * precio_producto %>
-                                            <td><%= total %></td> 
+                                            <td><%= pedido.producto ? pedido.producto.inventario.existencias : 'N/A' %></td>
+                                            <td><%= pedido.producto ? pedido.producto.precio : 'N/A' %></td>
+                                            <td><%= @total_sum %></td>
                                             <td><%= pedido.fecha_inicial.strftime("%d/%m/%Y") %></td>
                                             <td><%= pedido.fecha_entrega.strftime("%d/%m/%Y") %></td>
                                             <td><%= pedido.usuario_id %></td>
                                             <td>
-                                                <%= pedido.producto.proveedor.nombre %>        
-                                                <%= pedido.producto.proveedor.apellido_paterno %>
-                                                <%= pedido.producto.proveedor.apellido_materno %>
-                                            </td>
+                                            <% if pedido.producto && pedido.producto.proveedor %>
+                                              <%= pedido.producto.proveedor.nombre %>        
+                                              <%= pedido.producto.proveedor.apellido_paterno %>
+                                              <%= pedido.producto.proveedor.apellido_materno %>
+                                            <% else %>
+                                              Proveedor no disponible
+                                            <% end %>
+                                          </td>
+                                          
                                             <td><%= link_to "Mostrar", pedido, class: "btn btn-dark" %></td>
                                             <td><%= button_to "Eliminar", pedido, method: :delete, form: { data: { turbo_confirm: '¿Estás seguro?' } }, class: "btn btn-danger" %></td>      
                                         </tr>

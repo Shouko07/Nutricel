@@ -5,10 +5,10 @@
 <%= form_with(model: @pedido) do |form| %>
   <% if @pedido.errors.any? %>
     <div style="color: red">
-      <h2><%= pluralize(pedido.errors.count, "error") %> prohibited this pedido from being saved:</h2>
+      <h2><%= pluralize(@pedido.errors.count, "error") %> prohibited this pedido from being saved:</h2>
 
       <ul>
-        <% pedido.errors.each do |error| %>
+        <% @pedido.errors.each do |error| %>
           <li><%= error.full_message %></li>
         <% end %>
       </ul>

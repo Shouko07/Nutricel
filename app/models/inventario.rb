@@ -17,3 +17,4 @@ class Inventario < ApplicationRecord
         end
       end
 end
+

@@ -9,8 +9,14 @@ class PedidosController < ApplicationController
 
     @pedidos = current_usuario.pedido.order(:id) # Ordena los pedidos por ID
     @pedi2 = Pedido.where(usuario: current_usuario)
-    @total_sum = @pedi2.sum { |pedido| pedido.cantidad_ordenada * pedido.producto.precio }
-
+    @total_sum = @pedi2.sum do |pedido|
+      if pedido.producto && pedido.producto.precio
+        pedido.cantidad_ordenada * pedido.producto.precio
+      else
+        0
+      end
+    end
+    
   end
 
   # GET /pedidos/1 or /pedidos/1.json
@@ -36,6 +42,7 @@ class PedidosController < ApplicationController
 
   # GET /pedidos/1/edit
   def edit
+    @pedido
   end
 
   # POST /pedidos or /pedidos.json
