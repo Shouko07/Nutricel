@@ -9,6 +9,8 @@ class ProveedorsController < ApplicationController
   # GET /proveedors/1 or /proveedors/1.json
   def show
     @productos = @proveedor.producto
+    @pedidos = current_usuario.pedido.order(:id) # Ordena los pedidos por ID
+
   end
 
   # GET /proveedors/new
