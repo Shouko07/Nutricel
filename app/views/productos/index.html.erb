@@ -55,26 +55,27 @@
 </section>
 
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const searchInput = document.getElementById('searchInput');
-        const productTable = document.getElementById('productTable').getElementsByTagName('tbody')[0];
-        const productos = Array.from(productTable.getElementsByTagName('tr'));
+document.addEventListener('turbo:load', function() {
+    const searchInput = document.getElementById('searchInput');
+    const productTable = document.getElementById('productTable').getElementsByTagName('tbody')[0];
+    const productos = Array.from(productTable.getElementsByTagName('tr'));
 
-        searchInput.addEventListener('input', function() {
-            const searchString = searchInput.value.trim().toLowerCase();
+    searchInput.addEventListener('input', function() {
+        const searchString = searchInput.value.trim().toLowerCase();
 
-            productos.forEach(function(producto) {
-                const nombre = producto.getElementsByTagName('td')[1].textContent.toLowerCase();
-                const folioProducto = producto.getElementsByTagName('td')[0].textContent.toLowerCase();
+        productos.forEach(function(producto) {
+            const nombre = producto.getElementsByTagName('td')[1].textContent.toLowerCase();
+            const folioProducto = producto.getElementsByTagName('td')[0].textContent.toLowerCase();
 
-                if (nombre.includes(searchString) || folioProducto.includes(searchString)) {
-                    producto.style.display = 'table-row';
-                } else {
-                    producto.style.display = 'none';
-                }
-            });
+            if (nombre.includes(searchString) || folioProducto.includes(searchString)) {
+                producto.style.display = 'table-row';
+            } else {
+                producto.style.display = 'none';
+            }
         });
     });
+});
+
 </script>
 
 
