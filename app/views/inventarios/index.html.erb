@@ -64,8 +64,8 @@
 
             pedidos.forEach(function(pedido) {
                 const nombreProducto = pedido.getElementsByTagName('td')[1].textContent.toLowerCase();
-                const folioPedido = pedido.getElementsByTagName('td')[0].textContent.toLowerCase();
-                if (nombreProducto.includes(searchString) || folioPedido.includes(searchString)) {
+                const folioInventario = pedido.getElementsByTagName('td')[0].textContent.toLowerCase();
+                if (nombreProducto.includes(searchString) || folioInventario.includes(searchString)) {
                     pedido.style.display = 'table-row';
                 } else {
                     pedido.style.display = 'none';

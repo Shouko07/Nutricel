@@ -2,14 +2,21 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-12 col-sm-6 col-md-6">
-            <h1 class="display-6 fw-bold pb-md-4">Lista de clientes</h1>
+                <h1 class="display-6 fw-bold pb-md-4">Lista de clientes</h1>
             </div>
+        </div>
+        <div class="reflow-product-search">
+            <div class="ref-input-wrapper">
+                <input id="searchInput" class="ref-search" type="text" inputmode="search" placeholder="Buscar cliente" />
+                <span class="ref-cancel-search" style="display: none;"></span>
+            </div>
+            <div class="ref-button" type="submit" style="display: none;">Search</div>
         </div>
         <div id="TableSorterCard" class="card">
             <div class="row">
                 <div class="col-12">
                     <div class="table-responsive">
-                        <table id="ipi-table" class="table table-striped table tablesorter">
+                        <table id="usuarioTable" class="table table-striped table tablesorter">
                             <thead class="table-dark">
                                 <tr>
                                     <th class="text-center">Nombre</th>
@@ -24,7 +31,6 @@
                                 </tr>
                             </thead>
                             <tbody class="text-center">
-                                <tr>
                                 <% @usuarios.each do |usuario| %>
                                   <tr>
                                     <td>
@@ -39,14 +45,11 @@
                                     <td><%= usuario.codigo_postal %></td>
                                     <td><%= usuario.ciudad %></td>
                                     <td><%= usuario.pais %></td>
-                                    
-                                    
-                                    <td class="text-center " style="max-height: 60px;height: 60px;">
+                                    <td class="text-center" style="max-height: 60px;height: 60px;">
                                     <%= link_to "Mostrar", usuario, class: "btn btn-dark" %>
                                     </td>
                                   </tr>
                                 <% end %>
-                                </tr>
                             </tbody>
                         </table>
                     </div>
@@ -55,3 +58,25 @@
         </div>
     </div>
 </section>
+
+<script>
+    document.addEventListener('turbo:load', function() {
+        const searchInput = document.getElementById('searchInput');
+        const usuarioTable = document.getElementById('usuarioTable').getElementsByTagName('tbody')[0];
+        const usuarios = Array.from(usuarioTable.getElementsByTagName('tr'));
+
+        searchInput.addEventListener('input', function() {
+            const searchString = searchInput.value.trim().toLowerCase();
+
+            usuarios.forEach(function(usuario) {
+                const nombreUsuario = usuario.getElementsByTagName('td')[0].textContent.toLowerCase();
+                const correoUsuario = usuario.getElementsByTagName('td')[1].textContent.toLowerCase();
+                if (nombreUsuario.includes(searchString) || correoUsuario.includes(searchString)) {
+                    usuario.style.display = 'table-row';
+                } else {
+                    usuario.style.display = 'none';
+                }
+            });
+        });
+    });
+</script>
