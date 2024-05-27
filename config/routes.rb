@@ -15,6 +15,9 @@ Rails.application.routes.draw do
   get 'home/menu'
   get 'home/about'
   get 'home/faq'
+  get '/404', to: 'errors#not_found'
+  get '/500', to: 'errors#internal_server_error'
+
 
   root 'home#index'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
