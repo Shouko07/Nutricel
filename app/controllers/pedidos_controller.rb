@@ -69,19 +69,24 @@ class PedidosController < ApplicationController
   def update
     @pedido = Pedido.find(params[:id])
     cantidad_anterior = @pedido.cantidad_ordenada
-  
+    # Obtener el producto y el inventario
+    producto = @pedido.producto
+    inventario = producto.inventario
+
+    inventario.update(existencias: inventario.existencias + cantidad_anterior)
     respond_to do |format|
       if @pedido.update(pedido_params)
-        # Obtener el producto y el inventario
-        producto = @pedido.producto
-        inventario = producto.inventario
+
   
         # Ajustar el inventario sumando la cantidad anterior y restando la nueva cantidad
-        inventario.update(existencias: inventario.existencias + cantidad_anterior - @pedido.cantidad_ordenada)
+        inventario.update(existencias: inventario.existencias - @pedido.cantidad_ordenada)
+
+
   
         format.html { redirect_to pedido_url(@pedido), notice: "Pedido was successfully updated." }
         format.json { render :show, status: :ok, location: @pedido }
       else
+        inventario.update(existencias: inventario.existencias - cantidad_anterior)
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @pedido.errors, status: :unprocessable_entity }
       end

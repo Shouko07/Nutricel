@@ -18,6 +18,7 @@ class Pedido < ApplicationRecord
       end
     end
   end
+  
     def set_next_id
         last_order = usuario.pedido.order(:pedido_id).last
         self.pedido_id = last_order ? last_order.pedido_id + 1 : 1
